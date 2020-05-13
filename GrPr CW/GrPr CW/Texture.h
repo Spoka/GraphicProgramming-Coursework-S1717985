@@ -9,13 +9,13 @@ public:
 	Texture();
 
 	void Bind(unsigned int unit); // bind upto 32 textures
-	void init(const std::string& fileName);
+	void initialise(const std::string& fileName);
 
 	GLuint loadCubemap(std::vector<std::string> faces);
 
 
 	~Texture();
-	GLint getTexHandler() { return textureHandler; }
+	GLint getTextureHandler() { return textureHandler; }
 
 protected:
 private:

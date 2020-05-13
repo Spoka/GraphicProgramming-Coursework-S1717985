@@ -1,26 +1,25 @@
 #pragma once
 #include <glm\glm.hpp>
 #include <GL\glew.h>
-#include <string>
 #include "ObjLoader.h"
 
 struct Vertex
 {
 public:
-	Vertex(const glm::vec3& pos, const glm::vec2& texCoord)
+	Vertex(const glm::vec3& position, const glm::vec2& textureCoord)
 	{
-		this->pos = pos;
-		this->texCoord = texCoord;
+		this->position = position;
+		this->textureCoord = textureCoord;
 		this->normal = normal;
 	}
 
-	glm::vec3* GetPos() { return &pos; }
-	glm::vec2* GetTexCoord() { return &texCoord; }
+	glm::vec3* GetPosition() { return &position; }
+	glm::vec2* GetTextureCoord() { return &textureCoord; }
 	glm::vec3* GetNormal() { return &normal; }
 
 private:
-	glm::vec3 pos;
-	glm::vec2 texCoord;
+	glm::vec3 position;
+	glm::vec2 textureCoord;
 	glm::vec3 normal;
 };
 
@@ -33,9 +32,9 @@ public:
 
 
 	void draw();
-	void init(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
+	void initialise(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
 	void loadModel(const std::string& filename);
-	void initModel(const IndexedModel& model);
+	void initialiseModel(const IndexedModel& model);
 
 private:
 

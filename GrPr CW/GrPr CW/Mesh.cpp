@@ -2,24 +2,29 @@
 #include <vector>
 
 
-void Mesh::init(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices)
+Mesh::Mesh()
+{
+	drawCount = NULL;
+}
+
+void Mesh::initialise(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices)
 {
 	IndexedModel model;
 
 	for (unsigned int i = 0; i < numVertices; i++)
 	{
-		model.positions.push_back(*vertices[i].GetPos());
-		model.texCoords.push_back(*vertices[i].GetTexCoord());
+		model.positions.push_back(*vertices[i].GetPosition());
+		model.texCoords.push_back(*vertices[i].GetTextureCoord());
 		model.normals.push_back(*vertices[i].GetNormal());
 	}
 
 	for (unsigned int i = 0; i < numIndices; i++)
 		model.indices.push_back(indices[i]);
 
-	initModel(model);
+	initialiseModel(model);
 }
 
-void Mesh::initModel(const IndexedModel& model)
+void Mesh::initialiseModel(const IndexedModel& model)
 {
 
 	drawCount = model.indices.size();
@@ -50,15 +55,11 @@ void Mesh::initModel(const IndexedModel& model)
 	glBindVertexArray(0); // unbind our VAO
 }
 
-Mesh::Mesh()
-{
-	drawCount = NULL;
-}
 
 void Mesh::loadModel(const std::string& filename)
 {
 	IndexedModel model = OBJModel(filename).ToIndexedModel();
-	initModel(model);
+	initialiseModel(model);
 }
 
 Mesh::~Mesh()
@@ -71,7 +72,6 @@ void Mesh::draw()
 	glBindVertexArray(vertexArrayObject);
 
 	glDrawElements(GL_TRIANGLES, drawCount, GL_UNSIGNED_INT, 0);
-	glDrawArrays(GL_TRIANGLES, 0, drawCount);
 
 	glBindVertexArray(0);
 }

@@ -71,5 +71,43 @@
     <ClCompile Include="stb_image.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\res\shaderRim.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderRim.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderSkybox.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderSkybox.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderToon.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderToon.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderExplosion.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderExplosion.geom">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderExplosion.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderRandomColour.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\shaderRandomColour.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
